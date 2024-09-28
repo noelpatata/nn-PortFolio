@@ -10,7 +10,7 @@ const ContactForm: FC = memo(() => {
   const defaultData = useMemo(
     () => ({
       name: '',
-      email: '',
+      email: 'novocorboudnoel@gmail.com',
       message: '',
     }),
     [],
@@ -35,7 +35,8 @@ const ContactForm: FC = memo(() => {
       /**
        * This is a good starting point to wire up your form submission logic
        * */
-      console.log('Data to send: ', data);
+      window.open(`mailto:${data.email}?subject=${data.name}&body=${data.message}`);
+      
     },
     [data],
   );
@@ -45,16 +46,7 @@ const ContactForm: FC = memo(() => {
 
   return (
     <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={handleSendMessage}>
-      <input className={inputClasses} name="name" onChange={onChange} placeholder="Name" required type="text" />
-      <input
-        autoComplete="email"
-        className={inputClasses}
-        name="email"
-        onChange={onChange}
-        placeholder="Email"
-        required
-        type="email"
-      />
+      <input className={inputClasses} name="name" onChange={onChange} placeholder="Subject" required type="text" />
       <textarea
         className={inputClasses}
         maxLength={250}

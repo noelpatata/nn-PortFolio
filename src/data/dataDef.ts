@@ -21,7 +21,6 @@ export interface HomepageMeta {
  * Hero section
  */
 export interface Hero {
-  imageSrc: string;
   name: string;
   description: JSX.Element;
   actions: HeroActionItem[];
@@ -29,6 +28,8 @@ export interface Hero {
 
 interface HeroActionItem {
   href: string;
+  target?: string;
+  rel?: string;
   text: string;
   primary?: boolean;
   Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
@@ -91,19 +92,6 @@ export interface TimelineItem {
   location: string;
   title: string;
   content: JSX.Element;
-}
-
-/**
- * Testimonial section
- */
-export interface TestimonialSection {
-  imageSrc?: string | StaticImageData;
-  testimonials: Testi[];
-}
-
-export interface Testi {
-  name: string;
-  text: string;
 }
 
 /**
