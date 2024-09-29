@@ -47,8 +47,9 @@ const Portfolio: FC = memo(() => {
               >
                 {hoveredIndex !== index && (
                   <item.Icon
-                    color="gray"
-                    className="h-full w-full py-5 transition-opacity duration-300"
+                  className="h-full w-full py-5 transition-opacity duration-300"
+                  color="gray"
+                    
                   />
                 )}
                 <ItemOverlay item={item} />
