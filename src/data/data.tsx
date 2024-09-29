@@ -220,14 +220,14 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     title: 'The resume itself',
-    description: 'A web resume is built with NextJS and TypeScript',
+    description: 'A web resume is built with NextJS and TypeScript.',
     url: 'https://github.com/noelpatata/nn-PortFolio',
     Icon: WebSiteIcon,
   },
   {
-    title: 'Python project',
-    description: 'TODO',
-    url: 'https://reactresume.com',
+    title: 'Spotify account checker',
+    description: 'This console application checks if the given credentials are valid or not. Don\'t judge me its just for educational purposes.',
+    url: 'https://github.com/noelpatata/SpotifyAccountChecker',
     Icon: PythonIcon,
   },
 ];
