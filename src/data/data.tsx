@@ -6,14 +6,15 @@ import {
   MapPinIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';
+
+import CustomCarIcon from '../components/Icon/CustomCarIcon';
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import WebSiteIcon from '../components/Icon/WebSiteIcon';
 import PythonIcon from '../components/Icon/PythonIcon';
 import TicTacToeIcon from '../components/Icon/TicTacToeIcon';
+import WebSiteIcon from '../components/Icon/WebSiteIcon';
 import profilepic from '../images/portfolio/random_pic.jpg';
-
 import {
   About,
   ContactSection,
@@ -25,7 +26,6 @@ import {
   Social,
   TimelineItem,
 } from './dataDef';
-import CustomCarIcon from '../components/Icon/CustomCarIcon';
 
 /**
  * Page meta data
@@ -54,7 +54,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  * Hero section
  */
 export const heroData: Hero = {
-  name: `I'm Noel Novo.`,
+  name: `Noel Novo`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
@@ -220,7 +220,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     title: 'The resume itself',
-    description: 'A web resume is built with NextJS and TypeScript.',
+    description: 'A web resume built with NextJS and TypeScript.',
     url: 'https://github.com/noelpatata/nn-PortFolio',
     Icon: WebSiteIcon,
   },
@@ -366,11 +366,11 @@ export const experience: TimelineItem[] = [
   {
     date: 'October 2021 - June 2022',
     location: 'Escola PIA',
-    title: 'IT Assistant',
+    title: 'IT Assistant (Internship)',
     content: (
       <ul>
         <li>
-          <strong>Network Management:</strong> Setup and maintain the rack cabinet, keep the acces points up to date.
+          <strong>Network Management:</strong> Setup and maintain the rack cabinet, and kept the acces points up to date.
         </li>
         <li>
           <strong>Computer Management:</strong> Made sure the software wasn't deprecated.

@@ -1,5 +1,6 @@
-import {FC, memo, useState, useRef} from 'react';
+import {FC, memo, useCallback, useMemo,useRef, useState} from 'react';
 import {MdExpandLess} from 'react-icons/md';
+
 import {TimelineItem} from '../../../data/dataDef';
 
 const TimelineItem: FC<{item: TimelineItem}> = memo(({item}) => {
@@ -8,9 +9,13 @@ const TimelineItem: FC<{item: TimelineItem}> = memo(({item}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  const handleToggle = useCallback(() => {
+    setIsOpen((prevIsOpen) => !prevIsOpen)
+  }, []);
+
+  const toggleIconStyle = useMemo(() => ({
+    transform: isOpen ? 'rotate(0)' : 'rotate(-180deg)',
+  }), [isOpen]);
   return (
     <div className="pb-8 text-center last:pb-0 md:text-left">
       <div className="flex flex-col pb-4">
@@ -21,22 +26,24 @@ const TimelineItem: FC<{item: TimelineItem}> = memo(({item}) => {
           <span className="flex-1 text-sm sm:flex-none">{date}</span>
         </div>
       </div>
+      <div className="flex flex-row justify-center sm:justify-start">
       <MdExpandLess
-        color="white"
+        className="h-[25px] w-[25px] rounded-xl bg-white hover:bg-gray-300 border border-black transition-all duration-300 cursor-pointer"
+        color="black"
         onClick={handleToggle}
-        className="h-[25px] w-[25px] rounded-md bg-gradient-to-br from-black to-fuchsia-700 transition-all duration-300"
-        style={{
-          transform: isOpen ? 'rotate(0)' : 'rotate(-180deg)',
-        }}
+        style={toggleIconStyle}
       />
+      </div>
+      
+      
       <div
+        className="overflow-hidden mt-2 transition-all duration-300"
         id="container"
         ref={containerRef}
-        className="overflow-hidden mt-2 transition-all duration-300"
         style={{
           height: isOpen ? '100%' : '0px',
         }}>
-        <div id="text" ref={textRef} className="">
+        <div className="" id="text" ref={textRef}>
           {content}
         </div>
       </div>

@@ -1,8 +1,8 @@
 import {Dialog, Transition} from '@headlessui/react';
-import { IoMenu } from "react-icons/io5";
 import classNames from 'classnames';
 import Link from 'next/link';
 import {FC, Fragment, memo, useCallback, useMemo, useState} from 'react';
+import {IoMenu} from "react-icons/io5";
 
 import {SectionId} from '../../data/data';
 import {useNavObserver} from '../../hooks/useNavObserver';

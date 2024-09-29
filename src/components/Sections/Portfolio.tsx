@@ -9,16 +9,50 @@ import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 import Section from '../Layout/Section';
 
 const Portfolio: FC = memo(() => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+  const handleItemClick = (index: number) => {
+    if (clickedIndex === index) {
+      // Deselect the clicked item if it's already selected (toggle off)
+      setClickedIndex(null);
+    } else {
+      // Set the clicked item
+      setClickedIndex(index);
+    }
+  };
   return (
     <Section className="bg-black" sectionId={SectionId.Portfolio}>
       <div className="flex flex-col gap-y-8">
         <h2 className="self-center text-xl font-bold text-white">Some of my work</h2>
-        <div className="flex overflow-hidden gap-4 h-[30lvh]">
+        <div className="flex overflow-hidden gap-4 h-[40lvh] sm:h-[30lvh]">
           {portfolioItems.map((item, index) => {
             const {title} = item;
+            const isHovered = hoveredIndex === index;
+            const isClicked = clickedIndex === index;
             return (
-              <div className="rounded-xl opacity-50 hover:opacity-80 bg-gradient-to-br from-black to-fuchsia-700 w-[5%] h-full transition-all duration-300 flex-[1] hover:flex-[3] cursor-pointer" key={`${title}-${index}`}>
+              <div 
+              className={classNames(
+                'rounded-xl opacity-50 bg-gradient-to-br from-black to-fuchsia-700 w-[5%] h-full transition-all duration-300 flex-[1] cursor-pointer',
+                {
+                  'hover:flex-[3]': !isClicked,
+                  'flex-[3]': isClicked,
+                  'opacity-80': isHovered || isClicked
+                }
+              )}
+                key={`${title}-${index}`}
+                onClick={() => handleItemClick(index)}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                  
+              >
+                {hoveredIndex !== index && (
+                  <item.Icon
+                    color="gray"
+                    className="h-full w-full py-5 transition-opacity duration-300"
+                  />
+                )}
                 <ItemOverlay item={item} />
+                
               </div>
             );
           })}
@@ -57,20 +91,19 @@ const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, descrip
   return (
     <a
       className={classNames(
-        'h-full bg-gray-900 transition-all duration-300',
-        {'opacity-0 hover:opacity-100': !mobile},
-        showOverlay ? 'opacity-80' : 'opacity-0',
+        'h-full bg-gray-900 transition-all duration-300'
       )}
       href={url}
       onClick={handleItemClick}
       ref={linkRef}
+      rel='noopener noreferrer'
       target="_blank"
-      rel='noopener noreferrer'>
+      >
       <div className="relative h-full w-full p-4">
         <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain justify-center items-center">
           <h2 className="text-center font-bold text-white opacity-100">{title}</h2>
           <p className="text-center text-xs text-white opacity-100 sm:text-sm">{description}</p>
-          <Icon className="h-[10lvh] w-[10lvh] py-5"></Icon>
+          <Icon className="h-[100px] w-[100px] py-5" color='white'></Icon>
         </div>
         <ArrowTopRightOnSquareIcon className="absolute bottom-1 right-1 h-4 w-4 shrink-0 text-white sm:bottom-2 sm:right-2" />
       </div>
