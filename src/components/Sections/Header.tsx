@@ -33,7 +33,7 @@ const Header: FC = memo(() => {
 const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}> = memo(
   ({navSections, currentSection}) => {
     const baseClass =
-      '-m-1.5 p-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-700 sm:hover:text-fuchsia-700 text-neutral-100';
+      '-m-1.5 p-1.5 rounded-sm font-bold first-letter:uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-700 sm:hover:text-fuchsia-700 text-neutral-100 border-b-[0px] border-b-fuchsia-900 hover:border-b-2 ';
     const activeClass = classNames(baseClass, 'text-fuchsia-700');
     const inactiveClass = classNames(baseClass, 'text-neutral-100');
     return (

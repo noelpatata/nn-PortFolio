@@ -9,10 +9,6 @@ import {
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 import profilepic from '../images/portfolio/random_pic.jpg';
 import {
   About,
@@ -58,7 +54,7 @@ export const heroData: Hero = {
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
       <strong className="text-stone-100"/>
-      I am a <strong className="text-stone-100">Backend Software Engineer</strong>, currently working at <strong className="text-stone-100">Apen Soluciones Informáticas</strong> developing custom ERP modules and to our customers in .NET Framework.
+      I am a <strong className="text-stone-100">Backend Software Engineer</strong>, currently working at <strong className="text-stone-100">Apen Soluciones Informáticas</strong> developing custom ERP modules and services to our customers in .NET Framework.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         Outside the office I can be building this kind of things to <strong className="text-stone-100">learn new technologies and stay tuned</strong>, or maybe I just went hiking to some random mountain.
@@ -193,25 +189,25 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Tic tac toe',
     description: 'Just a simple tic tac toe with react.',
     url: 'https://github.com/noelpatata/tic-tac-toe/',
-    image: porfolioImage1,
+    Icon: LinkedInIcon,
   },
   {
     title: 'Project title 2',
     description: 'TODO',
     url: 'https://reactresume.com',
-    image: porfolioImage2,
+    Icon: LinkedInIcon,
   },
   {
     title: 'Project title 3',
     description: 'TODO',
     url: 'https://reactresume.com',
-    image: porfolioImage3,
+    Icon: LinkedInIcon,
   },
   {
     title: 'Project title 4',
     description: 'TODO',
     url: 'https://reactresume.com',
-    image: porfolioImage4,
+    Icon: LinkedInIcon,
   }
 ];
 
