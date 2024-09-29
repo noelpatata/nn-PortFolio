@@ -1,5 +1,5 @@
 import {Dialog, Transition} from '@headlessui/react';
-import {Bars3BottomRightIcon} from '@heroicons/react/24/outline';
+import { IoMenu } from "react-icons/io5";
 import classNames from 'classnames';
 import Link from 'next/link';
 import {FC, Fragment, memo, useCallback, useMemo, useState} from 'react';
@@ -33,7 +33,7 @@ const Header: FC = memo(() => {
 const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}> = memo(
   ({navSections, currentSection}) => {
     const baseClass =
-      '-m-1.5 p-1.5 rounded-sm font-bold first-letter:uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-700 sm:hover:text-fuchsia-700 text-neutral-100 border-b-[0px] border-b-fuchsia-900 hover:border-b-2 ';
+      '-m-1.5 p-1.5 rounded-sm font-bold first-letter:uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-700 sm:hover:text-fuchsia-700 text-neutral-100 border-b-[0px]';
     const activeClass = classNames(baseClass, 'text-fuchsia-700');
     const inactiveClass = classNames(baseClass, 'text-neutral-100');
     return (
@@ -70,9 +70,9 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
       <>
         <button
           aria-label="Menu Button"
-          className="fixed right-2 top-2 z-40 rounded-md bg-fuchsia-700 p-2 ring-offset-gray-800/60 hover:bg-fuchsia-700 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-fuchsia-700 focus-visible:ring-offset-2 sm:hidden"
+          className="fixed right-2 top-2 z-40 rounded-md bg-fuchsia-900 p-2 ring-offset-gray-800/60 hover:bg-fuchsia-950 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-fuchsia-700 focus-visible:ring-offset-2 sm:hidden"
           onClick={toggleOpen}>
-          <Bars3BottomRightIcon className="h-8 w-8 text-white" />
+          <IoMenu className="h-8 w-8 text-white" />
           <span className="sr-only">Open sidebar</span>
         </button>
         <Transition.Root as={Fragment} show={isOpen}>
@@ -85,7 +85,7 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
               leave="transition-opacity ease-linear duration-300"
               leaveFrom="opacity-100"
               leaveTo="opacity-0">
-              <Dialog.Overlay className="fixed inset-0 bg-stone-900 bg-opacity-75" />
+              <Dialog.Overlay className="fixed inset-0 bg-opacity-75" />
             </Transition.Child>
             <Transition.Child
               as={Fragment}
@@ -95,7 +95,7 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
               leave="transition ease-in-out duration-300 transform"
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full">
-              <div className="relative w-4/5 bg-[#272727]">
+              <div className="relative w-4/5 bg-gradient-to-br from-black to-fuchsia-700">
                 <nav className="mt-5 flex flex-col gap-y-2 px-2">
                   {navSections.map(section => (
                     <NavItem
