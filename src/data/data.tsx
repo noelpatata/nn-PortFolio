@@ -68,7 +68,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: 'https://drive.google.com/file/d/1pW-B3h5EJLXHGpPNZUEcPaQ8pqsOGgEj/view?usp=drive_link',
+      href: 'https://drive.google.com/file/d/10zINvr8-_gzF0aAJQBLJMEv3vxMNVy-O/view?usp=drive_link',
       target:'_blank',
       rel:'noopener noreferrer',
       text: 'Resume',
