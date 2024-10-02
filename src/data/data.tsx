@@ -31,7 +31,7 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Resume',
+  title: 'Noel Novo',
   description: "This is Noel Novo's web portfolio",
 };
 
@@ -68,7 +68,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: 'https://drive.google.com/file/d/10zINvr8-_gzF0aAJQBLJMEv3vxMNVy-O/view?usp=drive_link',
+      href: '/resume.pdf',
       target:'_blank',
       rel:'noopener noreferrer',
       text: 'Resume',
@@ -93,7 +93,7 @@ export const aboutData: About = {
     {label: 'Location', text: 'Barcelona, Spain', Icon: MapPinIcon},
     {label: 'Age', text: '20', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Spanish / Swiss', Icon: FlagIcon},
-    {label: 'Interests', text: 'Gym, Soccer, Learning new stuff', Icon: SparklesIcon},
+    {label: 'Interests', text: 'Lifelong learning, Challenges, Sports', Icon: SparklesIcon},
     {label: 'Employment', text: 'Apen Soluciones Informaticas', Icon: BuildingOffice2Icon},
     {label: 'Drivers license', text: '✅', Icon: CustomCarIcon},
   ],

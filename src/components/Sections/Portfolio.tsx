@@ -1,24 +1,18 @@
 import {ArrowTopRightOnSquareIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import {FC, memo, MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
+import {FC, memo, useState} from 'react';
 
-import {isMobile} from '../../config';
 import {portfolioItems, SectionId} from '../../data/data';
 import {PortfolioItem} from '../../data/dataDef';
-import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 import Section from '../Layout/Section';
 
 const Portfolio: FC = memo(() => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
   const handleItemClick = (index: number) => {
-    if (clickedIndex === index) {
-      // Deselect the clicked item if it's already selected (toggle off)
-      setClickedIndex(null);
-    } else {
-      // Set the clicked item
-      setClickedIndex(index);
-    }
+    setClickedIndex(index);
+    console.log(hoveredIndex)
+    console.log(clickedIndex)
   };
   return (
     <Section className="bg-black" sectionId={SectionId.Portfolio}>
@@ -35,8 +29,8 @@ const Portfolio: FC = memo(() => {
                 'rounded-xl opacity-50 bg-gradient-to-br from-black to-fuchsia-700 w-[5%] h-full transition-all duration-300 flex-[1] cursor-pointer',
                 {
                   'hover:flex-[3]': !isClicked,
-                  'flex-[3]': isClicked,
-                  'opacity-80': isHovered || isClicked
+                  'flex-[3]': isClicked && isHovered,
+                  'opacity-95': isHovered
                 }
               )}
                 key={`${title}-${index}`}
@@ -67,27 +61,7 @@ Portfolio.displayName = 'Portfolio';
 export default Portfolio;
 
 const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, description, Icon}}) => {
-  const [mobile, setMobile] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
-  const linkRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    // Avoid hydration styling errors by setting mobile in useEffect
-    if (isMobile) {
-      setMobile(true);
-    }
-  }, []);
-  useDetectOutsideClick(linkRef, () => setShowOverlay(false));
-
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLElement>) => {
-      if (mobile && !showOverlay) {
-        event.preventDefault();
-        setShowOverlay(!showOverlay);
-      }
-    },
-    [mobile, showOverlay],
-  );
+  
 
   return (
     <a
@@ -95,8 +69,6 @@ const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, descrip
         'h-full bg-gray-900 transition-all duration-300'
       )}
       href={url}
-      onClick={handleItemClick}
-      ref={linkRef}
       rel='noopener noreferrer'
       target="_blank"
       >
