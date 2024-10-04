@@ -7,8 +7,8 @@ import {PortfolioItem} from '../../data/dataDef';
 import Section from '../Layout/Section';
 
 const Portfolio: FC = memo(() => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
+  const [clickedIndex, setClickedIndex] = useState<number | null>(0);
   const handleItemClick = (index: number) => {
     setClickedIndex(index);
     console.log(hoveredIndex)
