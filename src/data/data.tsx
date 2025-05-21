@@ -213,6 +213,12 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
+    title: 'Friends Network',
+    description: 'Full stack chat application with clean architecture.',
+    url: 'https://github.com/noelpatata/FriendsNetwork/',
+    Icon: TicTacToeIcon,
+  },
+  {
     title: 'Tic tac toe',
     description: 'Just a simple tic tac toe with react.',
     url: 'https://github.com/noelpatata/tic-tac-toe/',
