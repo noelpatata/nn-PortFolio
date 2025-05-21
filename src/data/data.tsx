@@ -8,12 +8,12 @@ import {
 } from '@heroicons/react/24/outline';
 
 import CustomCarIcon from '../components/Icon/CustomCarIcon';
+import FriendsIcon from '../components/Icon/FriendsIcon';
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import PythonIcon from '../components/Icon/PythonIcon';
 import TicTacToeIcon from '../components/Icon/TicTacToeIcon';
-import FriendsIcon from '../components/Icon/FriendsIcon';
 import WebSiteIcon from '../components/Icon/WebSiteIcon';
 import profilepic from '../images/portfolio/random_pic.jpg';
 import {
