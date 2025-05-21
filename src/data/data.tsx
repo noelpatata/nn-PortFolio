@@ -13,6 +13,7 @@ import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import PythonIcon from '../components/Icon/PythonIcon';
 import TicTacToeIcon from '../components/Icon/TicTacToeIcon';
+import FriendsIcon from '../components/Icon/FriendsIcon';
 import WebSiteIcon from '../components/Icon/WebSiteIcon';
 import profilepic from '../images/portfolio/random_pic.jpg';
 import {
@@ -216,7 +217,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Friends Network',
     description: 'Full stack chat application with clean architecture.',
     url: 'https://github.com/noelpatata/FriendsNetwork/',
-    Icon: TicTacToeIcon,
+    Icon: FriendsIcon,
   },
   {
     title: 'Tic tac toe',
