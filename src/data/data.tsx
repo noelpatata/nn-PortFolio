@@ -93,7 +93,7 @@ export const aboutData: About = {
   aboutItems: [
     {label: 'Location', text: 'Barcelona, Spain', Icon: MapPinIcon},
     {label: 'Age', text: '20', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Spanish / Swiss', Icon: FlagIcon},
+    {label: 'Nationality', text: 'Spanish', Icon: FlagIcon},
     {label: 'Interests', text: 'Lifelong learning, Challenges, Sports', Icon: SparklesIcon},
     {label: 'Employment', text: 'Apen Soluciones Informaticas', Icon: BuildingOffice2Icon},
     {label: 'Drivers license', text: '✅', Icon: CustomCarIcon},
